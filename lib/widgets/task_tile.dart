@@ -27,7 +27,7 @@ class _TaskTileState extends State<TaskTile> with SingleTickerProviderStateMixin
       duration: const Duration(milliseconds: 400),
       vsync: this,
     );
-    
+
     if (widget.task.isCompleted) {
       _controller.value = 1.0;
     }
@@ -55,9 +55,9 @@ class _TaskTileState extends State<TaskTile> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    
+
     return Dismissible(
-      key: Key(widget.task.title),
+      key: Key(widget.task.title + widget.task.description),
       onDismissed: (_) => widget.onDelete(),
       background: Container(
         alignment: Alignment.centerRight,
@@ -77,13 +77,13 @@ class _TaskTileState extends State<TaskTile> with SingleTickerProviderStateMixin
         duration: const Duration(milliseconds: 300),
         margin: const EdgeInsets.symmetric(vertical: 4),
         decoration: BoxDecoration(
-          color: widget.task.isCompleted 
-              ? colorScheme.primaryContainer.withOpacity(0.4)
+          color: widget.task.isCompleted
+              ? colorScheme.primaryContainer.withValues(alpha:0.4)
               : colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: colorScheme.shadow.withOpacity(0.05),
+              color: colorScheme.shadow.withValues(alpha:0.05),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -102,12 +102,12 @@ class _TaskTileState extends State<TaskTile> with SingleTickerProviderStateMixin
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: widget.task.isCompleted 
+                  color: widget.task.isCompleted
                       ? colorScheme.primary
                       : colorScheme.outline,
                   width: 2,
                 ),
-                color: widget.task.isCompleted 
+                color: widget.task.isCompleted
                     ? colorScheme.primary
                     : Colors.transparent,
               ),
@@ -128,12 +128,12 @@ class _TaskTileState extends State<TaskTile> with SingleTickerProviderStateMixin
           title: AnimatedDefaultTextStyle(
             duration: const Duration(milliseconds: 300),
             style: textTheme.bodyLarge!.copyWith(
-              decoration: widget.task.isCompleted 
+              decoration: widget.task.isCompleted
                   ? TextDecoration.lineThrough
                   : TextDecoration.none,
               color: widget.task.isCompleted
-                  ? colorScheme.onBackground.withOpacity(0.7)
-                  : colorScheme.onBackground,
+                  ? colorScheme.onSurface.withValues(alpha:0.7)
+                  : colorScheme.onSurface,
               fontSize: 16,
               fontWeight: widget.task.isCompleted ? FontWeight.normal : FontWeight.w500,
             ),
@@ -143,12 +143,12 @@ class _TaskTileState extends State<TaskTile> with SingleTickerProviderStateMixin
               ? AnimatedDefaultTextStyle(
                   duration: const Duration(milliseconds: 300),
                   style: textTheme.bodyMedium!.copyWith(
-                    decoration: widget.task.isCompleted 
+                    decoration: widget.task.isCompleted
                         ? TextDecoration.lineThrough
                         : TextDecoration.none,
                     color: widget.task.isCompleted
-                        ? colorScheme.onBackground.withOpacity(0.5)
-                        : colorScheme.onBackground.withOpacity(0.7),
+                        ? colorScheme.onSurface.withValues(alpha:0.5)
+                        : colorScheme.onSurface.withValues(alpha:0.7),
                     fontSize: 14,
                   ),
                   child: Text(
@@ -161,7 +161,7 @@ class _TaskTileState extends State<TaskTile> with SingleTickerProviderStateMixin
           trailing: IconButton(
             icon: Icon(
               Icons.delete_outline_rounded,
-              color: colorScheme.error.withOpacity(0.8),
+              color: colorScheme.error.withValues(alpha:0.8),
               size: 22,
             ),
             splashRadius: 24,

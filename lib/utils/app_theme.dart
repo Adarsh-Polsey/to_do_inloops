@@ -35,11 +35,10 @@ class AppTheme {
       error: _errorLight,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
-      onBackground: Colors.black87,
       onSurface: Colors.black87,
       onError: Colors.white,
-      primaryContainer: _primaryLight.withOpacity(0.1),
-      onPrimaryContainer: _primaryLight.withOpacity(0.9),
+      primaryContainer: _primaryLight.withValues(alpha:0.1),
+      onPrimaryContainer: _primaryLight.withValues(alpha:0.9),
     ),
     appBarTheme: const AppBarTheme(
       color: _primaryLight,
@@ -106,11 +105,11 @@ class AppTheme {
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.grey.withOpacity(0.3)),
+        borderSide: BorderSide(color: Colors.grey.withValues(alpha:0.3)),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.grey.withOpacity(0.3)),
+        borderSide: BorderSide(color: Colors.grey.withValues(alpha:0.3)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -140,7 +139,7 @@ class AppTheme {
       ),
     ),
     dividerTheme: DividerThemeData(
-      color: Colors.grey.withOpacity(0.2),
+      color: Colors.grey.withValues(alpha:0.2),
       thickness: 1,
       space: 1,
     ),
@@ -207,11 +206,11 @@ class AppTheme {
       ),
     ),
     scaffoldBackgroundColor: _backgroundLight,
-    shadowColor: Colors.black.withOpacity(0.1),
+    shadowColor: Colors.black.withValues(alpha:0.1),
     extensions: <ThemeExtension<dynamic>>[
       CustomThemeColors(
         completedTaskColor: _completedTaskColorLight,
-        taskTileShadowColor: Colors.black.withOpacity(0.05),
+        taskTileShadowColor: Colors.black.withValues(alpha:0.05),
       ),
     ],
   );
@@ -229,11 +228,10 @@ class AppTheme {
       error: _errorDark,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
-      onBackground: Colors.white,
       onSurface: Colors.white,
       onError: Colors.white,
-      primaryContainer: _primaryDark.withOpacity(0.15),
-      onPrimaryContainer: _primaryDark.withOpacity(0.85),
+      primaryContainer: _primaryDark.withValues(alpha:0.15),
+      onPrimaryContainer: _primaryDark.withValues(alpha:0.85),
     ),
     appBarTheme: AppBarTheme(
       color: _surfaceDark,
@@ -296,7 +294,7 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: _surfaceDark.withOpacity(0.7),
+      fillColor: _surfaceDark.withValues(alpha:0.7),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -334,7 +332,7 @@ class AppTheme {
       ),
     ),
     dividerTheme: DividerThemeData(
-      color: Colors.grey.shade700.withOpacity(0.3),
+      color: Colors.grey.shade700.withValues(alpha:0.3),
       thickness: 1,
       space: 1,
     ),
@@ -401,11 +399,11 @@ class AppTheme {
       ),
     ),
     scaffoldBackgroundColor: _backgroundDark,
-    shadowColor: Colors.black.withOpacity(0.3),
+    shadowColor: Colors.black.withValues(alpha:0.3),
     extensions: <ThemeExtension<dynamic>>[
       CustomThemeColors(
         completedTaskColor: _completedTaskColorDark,
-        taskTileShadowColor: Colors.black.withOpacity(0.2),
+        taskTileShadowColor: Colors.black.withValues(alpha:0.2),
       ),
     ],
   );

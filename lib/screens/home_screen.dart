@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     return Scaffold(
       backgroundColor: colorScheme.background,
       appBar: AppBar(
-        backgroundColor: colorScheme.primaryContainer.withOpacity(0.7),
+        backgroundColor: colorScheme.primaryContainer.withValues(alpha:0.7),
         elevation: 0,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -99,20 +99,20 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   Icon(
                     Icons.check_circle_outline,
                     size: 80,
-                    color: colorScheme.primary.withOpacity(0.5),
+                    color: colorScheme.primary.withValues(alpha:0.5),
                   ),
                   const SizedBox(height: 16),
                   Text(
                     'No tasks yet',
                     style: textTheme.titleLarge?.copyWith(
-                      color: colorScheme.onBackground.withOpacity(0.7),
+                      color: colorScheme.onSurface.withValues(alpha:0.7),
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     'Tap the + button to add a task',
                     style: textTheme.bodyMedium?.copyWith(
-                      color: colorScheme.onBackground.withOpacity(0.5),
+                      color: colorScheme.onSurface.withValues(alpha:0.5),
                     ),
                   ),
                 ],
@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           onPressed: () async {
             _fabAnimationController.reverse();
 
-            final newTask = await Navigator.push(
+            await Navigator.push(
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) => const AddTaskScreen(),
@@ -163,11 +163,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             );
 
             _fabAnimationController.forward();
-
-            if (newTask != null) {
-              // Only add task if AddTaskScreen returns one (not already added inside AddTaskScreen)
-              Provider.of<TaskProvider>(context, listen: false).addTask(newTask);
-            }
           },
           backgroundColor: colorScheme.primary,
           foregroundColor: colorScheme.onPrimary,

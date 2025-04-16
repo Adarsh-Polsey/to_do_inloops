@@ -55,7 +55,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     return Scaffold(
       backgroundColor: colorScheme.background,
       appBar: AppBar(
-        backgroundColor: colorScheme.primaryContainer.withOpacity(0.7),
+        backgroundColor: colorScheme.primaryContainer.withValues(alpha:0.7),
         elevation: 0,
         title: Text(
           'Create New Task',
@@ -87,14 +87,14 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 'Task Details',
                 style: textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w600,
-                  color: colorScheme.onBackground,
+                  color: colorScheme.onSurface,
                 ),
               ),
               const SizedBox(height: 8),
               Text(
                 'Add information about your new task',
                 style: textTheme.bodyMedium?.copyWith(
-                  color: colorScheme.onBackground.withOpacity(0.7),
+                  color: colorScheme.onSurface.withValues(alpha:0.7),
                 ),
               ),
               const SizedBox(height: 32),
@@ -102,7 +102,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 'Title',
                 style: textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w500,
-                  color: colorScheme.onBackground,
+                  color: colorScheme.onSurface,
                 ),
               ),
               const SizedBox(height: 8),
@@ -114,14 +114,14 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 decoration: InputDecoration(
                   hintText: 'What needs to be done?',
                   hintStyle: TextStyle(
-                    color: colorScheme.onSurface.withOpacity(0.5),
+                    color: colorScheme.onSurface.withValues(alpha:0.5),
                   ),
                   filled: true,
                   fillColor: colorScheme.surface,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(
-                      color: colorScheme.outline.withOpacity(0.3),
+                      color: colorScheme.outline.withValues(alpha:0.3),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
@@ -145,7 +145,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 'Description',
                 style: textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w500,
-                  color: colorScheme.onBackground,
+                  color: colorScheme.onSurface,
                 ),
               ),
               const SizedBox(height: 8),
@@ -158,14 +158,14 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 decoration: InputDecoration(
                   hintText: 'Add some details (optional)',
                   hintStyle: TextStyle(
-                    color: colorScheme.onSurface.withOpacity(0.5),
+                    color: colorScheme.onSurface.withValues(alpha:0.5),
                   ),
                   filled: true,
                   fillColor: colorScheme.surface,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(
-                      color: colorScheme.outline.withOpacity(0.3),
+                      color: colorScheme.outline.withValues(alpha:0.3),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
